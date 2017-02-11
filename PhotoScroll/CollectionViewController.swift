@@ -31,8 +31,9 @@ class CollectionViewController: UICollectionViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if let cell = sender as? UICollectionViewCell,
       let indexPath = collectionView?.indexPath(for: cell),
-      let photoCommentViewController = segue.destination as? PhotoCommentViewController {
-      photoCommentViewController.photoName = "photo\(indexPath.row + 1)"
+      let managePageViewController = segue.destination as? ManagePageViewController {
+      managePageViewController.photos = photos
+      managePageViewController.currentIndex = indexPath.item
     }
   }
 }
@@ -44,12 +45,12 @@ extension CollectionViewController {
   }
   
   override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return photos.count
+    return 100
   }
   
   override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! PhotoCell
-    let fullSizedImage = UIImage(named:photos[indexPath.row])
+    let fullSizedImage = UIImage(named:photos[indexPath.row % 5])
     cell.imageView.image = fullSizedImage?.thumbnailOfSize(thumbnailSize)
     return cell
   }

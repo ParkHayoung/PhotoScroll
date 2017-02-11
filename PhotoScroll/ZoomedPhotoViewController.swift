@@ -33,8 +33,11 @@ class ZoomedPhotoViewController: UIViewController {
   
   @IBOutlet weak var imageView: UIImageView!
   var photoName: String!
+   
+  
   
   override func viewDidLoad() {
+    super.viewDidLoad()
     imageView.image = UIImage(named: photoName)
   }
   

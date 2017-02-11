@@ -17,14 +17,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="LlG-pY-2Xq">
-                            <size key="itemSize" width="70" height="70"/>
+                            <size key="itemSize" width="20" height="20"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCell" id="buF-rK-ntA" customClass="PhotoCell" customModule="PhotoScroll" customModuleProvider="target">
-                                <rect key="frame" x="87.5" y="0.0" width="200" height="200"/>
+                                <rect key="frame" x="88" y="0.0" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -44,7 +44,7 @@
                                 <size key="customSize" width="200" height="200"/>
                                 <connections>
                                     <outlet property="imageView" destination="1Xv-RL-hti" id="2ul-H5-n5T"/>
-                                    <segue destination="Rud-bH-lpj" kind="show" identifier="showPhotoPage" id="9Rq-H8-9g0"/>
+                                    <segue destination="kNM-lO-pV8" kind="show" identifier="ShowPhotoPage" id="gQ8-oZ-2vh"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -109,12 +109,20 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RSI-tT-12r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1436" y="1209"/>
+            <point key="canvasLocation" x="2409" y="1324"/>
+        </scene>
+        <!--Manage Page View Controller-->
+        <scene sceneID="eV9-Sr-BjH">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" pageSpacing="8" navigationOrientation="horizontal" spineLocation="none" id="kNM-lO-pV8" customClass="ManagePageViewController" customModule="PhotoScroll" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xd0-UQ-8jm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2410" y="484"/>
         </scene>
         <!--Photo Comment View Controller-->
         <scene sceneID="5hH-Vi-faV">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Rud-bH-lpj" customClass="PhotoCommentViewController" customModule="PhotoScroll" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PhotoCommentViewController" automaticallyAdjustsScrollViewInsets="NO" id="Rud-bH-lpj" customClass="PhotoCommentViewController" customModule="PhotoScroll" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CXc-MQ-wgJ"/>
                         <viewControllerLayoutGuide type="bottom" id="VEZ-WJ-MUI"/>
@@ -129,11 +137,15 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="koH-rz-y1i" userLabel="Container View">
                                         <rect key="frame" x="0.0" y="0.0" width="340" height="500"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo1" translatesAutoresizingMaskIntoConstraints="NO" id="kth-LA-Qa1">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo1" translatesAutoresizingMaskIntoConstraints="NO" id="kth-LA-Qa1">
                                                 <rect key="frame" x="0.0" y="0.0" width="340" height="300"/>
+                                                <gestureRecognizers/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="300" id="rfb-Qy-RJp"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="CWt-4z-3Ci" appends="YES" id="kPm-tb-4Hy"/>
+                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What name fits me best? " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4vF-OA-qch">
                                                 <rect key="frame" x="73.5" y="300" width="194.5" height="21"/>
@@ -180,7 +192,7 @@
                             <constraint firstItem="koH-rz-y1i" firstAttribute="width" secondItem="EVg-fQ-Z1i" secondAttribute="width" id="qDo-Iz-8qx"/>
                         </constraints>
                         <connections>
-                            <outletCollection property="gestureRecognizers" destination="5w1-Wa-L8G" appends="YES" id="YYB-MF-2aT"/>
+                            <outletCollection property="gestureRecognizers" destination="5w1-Wa-L8G" appends="YES" id="3Cn-JS-YZD"/>
                         </connections>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -189,16 +201,22 @@
                         <outlet property="imageView" destination="kth-LA-Qa1" id="5If-Ws-XgC"/>
                         <outlet property="nameTextField" destination="zhN-YM-xUQ" id="Ebk-fh-suC"/>
                         <outlet property="scrollView" destination="HmH-lS-4Y7" id="SVJ-eR-7yg"/>
+                        <segue destination="Tou-yP-mjQ" kind="showDetail" identifier="zoomImage" id="Nrh-Uo-V6h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obn-UQ-hNQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="5w1-Wa-L8G">
                     <connections>
-                        <action selector="hideKeyboard:" destination="Rud-bH-lpj" id="ZdV-O2-Ss4"/>
+                        <action selector="hideKeyboard:" destination="Rud-bH-lpj" id="0Xd-sr-fVG"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="CWt-4z-3Ci">
+                    <connections>
+                        <action selector="clickImage:" destination="Rud-bH-lpj" id="kTM-Fu-gxu"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2317" y="484"/>
+            <point key="canvasLocation" x="1486" y="1324"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uzF-pX-Zex">
